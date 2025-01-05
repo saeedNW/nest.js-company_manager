@@ -7,7 +7,7 @@ import { HttpClientModule } from '../http/http.module';
 @Module({
 	imports: [
 		/** Initialize database connection */
-		MongooseModule.forRoot("mongodb://127.0.0.1:27017/company_manager"),
+		MongooseModule.forRoot("mongodb://127.0.0.1:27017/exam"),
 
 		UserModule,
 		CompanyModule,
