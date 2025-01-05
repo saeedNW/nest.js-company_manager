@@ -34,7 +34,7 @@ export class CompanyService {
 		// Add new company's data to then database
 		const company = await this.companyModel.create({ ...createCompanyDto });
 		// Update user's data and add new company
-		await this.userModel.updateOne({ _id: user }, { $push: { Companies: company } })
+		await this.userModel.updateOne({ _id: user }, { $push: { companies: company } })
 
 		return company;
 	}

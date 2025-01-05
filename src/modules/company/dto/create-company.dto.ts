@@ -9,7 +9,7 @@ export class CreateCompanyDto {
 	@IsNotEmpty()
 	@Length(5, 150)
 	@Expose()
-	CompanyName: string;
+	companyName: string;
 
 	@ApiProperty()
 	@IsMongoId()

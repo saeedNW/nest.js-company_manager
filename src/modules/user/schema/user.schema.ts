@@ -9,7 +9,7 @@ export class User {
 	@Prop({ required: true, unique: true })
 	email: string;
 	@Prop({ type: [{ type: mongooseSchema.Types.ObjectId, ref: 'Company' }] })
-	Companies: Company[];
+	companies: Company[];
 }
 
 export type UserDocument = HydratedDocument<User>;

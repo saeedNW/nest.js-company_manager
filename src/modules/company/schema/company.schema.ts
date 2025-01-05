@@ -5,7 +5,7 @@ import { User } from 'src/modules/user/schema/user.schema';
 @Schema()
 export class Company {
 	@Prop({ required: true })
-	CompanyName: string;
+	companyName: string;
 	@Prop({
 		type: mongooseSchema.Types.ObjectId,
 		ref: "User",

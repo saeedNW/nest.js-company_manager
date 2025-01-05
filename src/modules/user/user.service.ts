@@ -24,15 +24,15 @@ export class UserService {
 	 */
 	async createUser(createUserDto: CreateUserDto) {
 		// Destructure register dto properties
-		let { email, CompanyName } = createUserDto;
+		let { email, companyName } = createUserDto;
 		// Check for duplicated email address
 		await this.duplicatedEmail(email);
 		// Create new user document
 		let user = new this.userModel({ ...createUserDto });
 		// Add new company for user
-		const company = await this.companyService.AddCompany({ CompanyName, user: user._id.toHexString() });
+		const company = await this.companyService.AddCompany({ companyName, user: user._id.toHexString() });
 		// Add company id to user data
-		user.Companies.push(company);
+		user.companies.push(company);
 		// Save user data to database
 		user = await user.save();
 		// send welcome email
@@ -51,8 +51,8 @@ export class UserService {
 	async findOne(id: string) {
 		// Retrieve user's data from database
 		const user = await this.userModel.findById(id).populate([{
-			path: "Companies",
-			select: ["_id", "CompanyName"]
+			path: "companies",
+			select: ["_id", "companyName"]
 		}]);
 		// throe error if user was not found
 		if (!user) {

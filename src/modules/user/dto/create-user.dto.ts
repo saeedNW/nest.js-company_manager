@@ -21,5 +21,5 @@ export class CreateUserDto {
 	@IsNotEmpty()
 	@Length(5, 150)
 	@Expose()
-	CompanyName: string;
+	companyName: string;
 }
